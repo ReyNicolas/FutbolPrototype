@@ -13,5 +13,5 @@ In this prototype game, you control Unity-chan on the football field. Use the ar
 
 ## Acknowledgements
 
--Unity Technologies for the Unity game engine.
--Unity-chan for the Unity-chan character and animations.
+- Unity Technologies for the Unity game engine.
+- Unity-chan for the Unity-chan character and animations.
