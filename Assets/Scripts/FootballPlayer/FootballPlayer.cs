@@ -39,12 +39,17 @@ public class FootballPlayer : MonoBehaviour
         vectorShoot.x += xValue;
         vectorShoot.z += yValue;
     }
+    internal void MoveToBallWithPosition(Vector3 ballPosition)
+    {
+        vMove.x = (ballPosition.x - transform.position.x);
+        vMove.z = (ballPosition.z - transform.position.z);
+    }
 
     public void FollowBallWithPosition(Vector3 ballPosition)
     {
-        vMove.x += (ballPosition.x - transform.position.x) * followBallMultiplier;
-        vMove.z += (ballPosition.z - transform.position.z) * followBallMultiplier;
-        vMove.Normalize();
+
+        vMove.x += (vMove.x != 0)? (ballPosition.x - transform.position.x) * followBallMultiplier: (ballPosition.x - transform.position.x);
+        vMove.z += (vMove.z != 0) ? (ballPosition.z - transform.position.z) * followBallMultiplier : (ballPosition.z - transform.position.z);
     }
 
     public void ChargeShoot()
@@ -116,4 +121,5 @@ public class FootballPlayer : MonoBehaviour
         }
     }
 
+    
 }

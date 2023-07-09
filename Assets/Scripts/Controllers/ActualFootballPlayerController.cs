@@ -10,10 +10,10 @@ public class ActualFootballPlayerController : MonoBehaviour
     public void Update()
     {
         MoveFootballPlayer();
-        if(Input.GetKey(KeyCode.E)|| Input.GetKey(KeyCode.Q)) FollowBall();
         if (Input.GetKeyDown(KeyCode.Q)) ChargeShoot();
         if (Input.GetKeyUp(KeyCode.Q)) MakeShoot();
-        
+        if (Input.GetKey(KeyCode.Q)) MoveToBall();
+        else if (Input.GetKey(KeyCode.E)) FollowBall();
     }
 
     void MakeShoot()
@@ -40,5 +40,11 @@ public class ActualFootballPlayerController : MonoBehaviour
     {
         actualFootballPlayerScript.FollowBallWithPosition(BallInMatchController.instance.GiveMeBallPosition() );
     }
+
+    void MoveToBall()
+    {
+        actualFootballPlayerScript.MoveToBallWithPosition(BallInMatchController.instance.GiveMeBallPosition());
+    }
+
 }
 
